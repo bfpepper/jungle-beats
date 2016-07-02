@@ -13,7 +13,7 @@ class NodeTest < Minitest::Test
     assert_equal "blop", node.data
   end
 
-  def test_next_node_is_for_next_node
+  def test_next_node_nil_for_new_next_node
     node = Node.new("blop")
     assert_nil node.next_node
   end
