@@ -16,9 +16,7 @@ class LinkedListTest < Minitest::Test
 
   def test_append_data
     list = LinkedList.new
-    assert_equal list.append("doop"), list.head.data
+    
   end
-
-
 
 end
