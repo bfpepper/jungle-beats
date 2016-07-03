@@ -14,9 +14,9 @@ class LinkedListTest < Minitest::Test
     assert_nil list.head
   end
 
-  def test_append_data
-    list = LinkedList.new
-    
-  end
+  # def test_append_data
+  #   list = LinkedList.new
+  #   
+  # end
 
 end
