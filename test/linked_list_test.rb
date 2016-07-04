@@ -80,4 +80,13 @@ class LinkedListTest < Minitest::Test
     assert_equal "deep", list.find(2, 1)
   end
 
+  def test_it_can_find_multiple_words
+    list = LinkedList.new
+    list.append("doop")
+    list.append("deep")
+    list.append("slop")
+    list.append("derp")
+    assert_equal "deep slop", list.find(2, 2)
+  end
+
 end
