@@ -4,17 +4,6 @@ require "./lib/node"
 
 class LinkedList
 
-
-  #RENAME ALL VARIABLES!!!!!!!!!!!
-  #RENAME ALL VARIABLES!!!!!!!!!!!
-  #RENAME ALL VARIABLES!!!!!!!!!!!
-  #RENAME ALL VARIABLES!!!!!!!!!!!
-  #RENAME ALL VARIABLES!!!!!!!!!!!
-  #RENAME ALL VARIABLES!!!!!!!!!!!
-  #RENAME ALL VARIABLES!!!!!!!!!!!
-  #RENAME ALL VARIABLES!!!!!!!!!!!
-
-
   attr_reader :head
 
   def append(sound)
@@ -51,25 +40,25 @@ class LinkedList
   end
 
   def prepend(sound)
-    old_head = @head
+    original_head = @head
     @head = Node.new(sound)
-    @head.next_node = old_head
+    @head.next_node = original_head
   end
 
   def insert(position, sound)
     current_node = @head
     count = 1
     if count == position
-      old_node = current_node.next_node
+      original_node = current_node.next_node
     end
     until count == position
       current_node = current_node.next_node
       count += 1
-      old_node = current_node.next_node
+      original_node = current_node.next_node
     end
     current_node.next_node = Node.new(sound)
-    new_node_3 = current_node.next_node
-    new_node_3.next_node = old_node
+    newly_made_node = current_node.next_node
+    newly_made_node.next_node = original_node
   end
 
   def find(start_position, number_of_positions)
@@ -81,14 +70,15 @@ class LinkedList
       current_node = current_node.next_node
       count += 1
     end
-    found << current_node.data
-    #find how to shovel in the right # of words
-    number_of_positions.times do
+    #needs to get the number of nodes.data
+    count = 0
+    until count == number_of_positions
       current_node = current_node.next_node
-      found << " " + current_node
+      found << current_node.data
+      count += 1
     end
-    #same basic logic as insert method
     found
+    #same basic logic as insert method
   end
 
 end
