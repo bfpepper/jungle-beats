@@ -70,7 +70,8 @@ class LinkedList
       current_node = current_node.next_node
       count += 1
     end
-    #needs to get the number of nodes.data
+    #needs to get the number of nodes.data this is breaking because
+      #I am not saving result form lines 70-71?
     count = 0
     until count == number_of_positions
       current_node = current_node.next_node
@@ -81,14 +82,15 @@ class LinkedList
     #same basic logic as insert method
   end
 
+  def includes?(sound)
+    sounds = to_string
+    sounds.include?(sound)
+  end
+
 end
 
 # > list.find(1, 3)
 # => "woo shi shu"
-# > list.includes?("deep")
-# => true
-# > list.includes?("dep")
-# => false
 # > list.pop
 # => "blop"
 # > list.pop

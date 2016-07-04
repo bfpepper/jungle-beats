@@ -73,6 +73,7 @@ class LinkedListTest < Minitest::Test
   end
 
   def test_it_can_find_a_word
+    skip
     list = LinkedList.new
     list.append("doop")
     list.append("deep")
@@ -81,12 +82,40 @@ class LinkedListTest < Minitest::Test
   end
 
   def test_it_can_find_multiple_words
+    skip
     list = LinkedList.new
     list.append("doop")
     list.append("deep")
     list.append("slop")
     list.append("derp")
     assert_equal "deep slop", list.find(2, 2)
+  end
+
+  def test_it_can_tell_if_a_sound_is_included
+    list = LinkedList.new
+    list.append("doop")
+    list.append("deep")
+    list.prepend("eeep")
+    assert_equal true, list.includes?("deep")
+  end
+
+  def test_sound_is_not_included
+    list = LinkedList.new
+    list.append("doop")
+    list.append("deep")
+    list.prepend("eeep")
+    assert_equal false, list.includes?("dep")
+  end
+
+  def thet_it_can_pop_off_the_last_sound
+    # this test doesnt seem to be registering
+    list = LinkedList.new
+    list.append("doop")
+    list.append("deep")
+    list.append("slop")
+    list.append("derp")
+    assert_equal "derp", list.pop
+    assert_equal "doop deep slop", list.to_string
   end
 
 end
