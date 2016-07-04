@@ -4,6 +4,17 @@ require "./lib/node"
 
 class LinkedList
 
+
+  #RENAME ALL VARIABLES!!!!!!!!!!!
+  #RENAME ALL VARIABLES!!!!!!!!!!!
+  #RENAME ALL VARIABLES!!!!!!!!!!!
+  #RENAME ALL VARIABLES!!!!!!!!!!!
+  #RENAME ALL VARIABLES!!!!!!!!!!!
+  #RENAME ALL VARIABLES!!!!!!!!!!!
+  #RENAME ALL VARIABLES!!!!!!!!!!!
+  #RENAME ALL VARIABLES!!!!!!!!!!!
+
+
   attr_reader :head
 
   def append(sound)
@@ -59,19 +70,29 @@ class LinkedList
     current_node.next_node = Node.new(sound)
     new_node_3 = current_node.next_node
     new_node_3.next_node = old_node
-    #rename all *node varialbles
   end
 
   def find(start_position, number_of_positions)
+    found = ""
+    current_node = @head
+    count = 0
+    #gets me to the start_position
+    until count == start_position
+      current_node = current_node.next_node
+      count += 1
+    end
+    found << current_node.data
+    #find how to shovel in the right # of words
+    number_of_positions.times do
+      current_node = current_node.next_node
+      found << " " + current_node
+    end
     #same basic logic as insert method
+    found
   end
 
 end
 
-# > list.to_string
-# => "deep woo shi shu blop"
-# > list.find(2, 1)
-# => "shi"
 # > list.find(1, 3)
 # => "woo shi shu"
 # > list.includes?("deep")
