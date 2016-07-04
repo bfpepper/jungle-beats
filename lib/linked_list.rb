@@ -63,7 +63,7 @@ class LinkedList
   end
 
   def find(start_position, number_of_positions)
-    
+    #same basic logic as insert method
   end
 
 end
