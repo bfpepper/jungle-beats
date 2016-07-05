@@ -10,7 +10,11 @@ class LinkedList
     if @head == nil
       @head = Node.new(sound)
     else
-      @head.next_node = Node.new(sound)
+      current_node = @head
+      until current_node.next_node.nil?
+        current_node = current_node.next_node
+      end
+      current_node.next_node = Node.new(sound)
     end
   end
 
@@ -65,21 +69,19 @@ class LinkedList
     found = ""
     current_node = @head
     count = 0
-    #gets me to the start_position
     until count == start_position
       current_node = current_node.next_node
       count += 1
     end
-    #needs to get the number of nodes.data this is breaking because
-      #I am not saving result form lines 70-71?
-    count = 0
+    count = 1
+    found << current_node.data
+    current_node = current_node.next_node
     until count == number_of_positions
+      found << " " + current_node.data
       current_node = current_node.next_node
-      found << current_node.data
       count += 1
     end
     found
-    #same basic logic as insert method
   end
 
   def includes?(sound)
@@ -87,13 +89,14 @@ class LinkedList
     sounds.include?(sound)
   end
 
-end
+  def pop
+    current_node = @head.next_node
+    until current_node.next_node.next_node.nil?
+      current_node = current_node.next_node
+    end
+    popped_value = current_node.next_node.data
+    current_node.next_node = nil
+    popped_value
+  end
 
-# > list.find(1, 3)
-# => "woo shi shu"
-# > list.pop
-# => "blop"
-# > list.pop
-# => "shu"
-# > list.to_string
-# => "deep woo shi"
+end

@@ -45,13 +45,22 @@ class LinkedListTest < Minitest::Test
     assert_equal "doop", head_node.data
   end
 
-  def test_it_can_add_multiple_nodes
+  def test_it_can_add_two_nodes
     list = LinkedList.new
     list.append("doop")
     list.append("deep")
     assert_equal "deep", list.head.next_node.data
     assert_equal 2, list.count
     assert_equal "doop deep", list.to_string
+  end
+
+  def test_it_can_handle_multiple_nodes
+    list = LinkedList.new
+    list.append("doop")
+    list.append("deep")
+    assert_equal "deep", list.head.next_node.data
+    list.append("eep")
+    assert_equal "deep", list.head.next_node.data
   end
 
   def test_it_can_add_a_node_to_the_front
@@ -73,22 +82,20 @@ class LinkedListTest < Minitest::Test
   end
 
   def test_it_can_find_a_word
-    skip
     list = LinkedList.new
     list.append("doop")
     list.append("deep")
-    list.prepend("slop")
-    assert_equal "deep", list.find(2, 1)
+    list.append("slop")
+    assert_equal "slop", list.find(2, 1)
   end
 
   def test_it_can_find_multiple_words
-    skip
     list = LinkedList.new
     list.append("doop")
     list.append("deep")
     list.append("slop")
     list.append("derp")
-    assert_equal "deep slop", list.find(2, 2)
+    assert_equal "slop derp", list.find(2, 2)
   end
 
   def test_it_can_tell_if_a_sound_is_included
@@ -107,8 +114,7 @@ class LinkedListTest < Minitest::Test
     assert_equal false, list.includes?("dep")
   end
 
-  def thet_it_can_pop_off_the_last_sound
-    # this test doesnt seem to be registering
+  def test_it_can_pop_off_the_last_sound
     list = LinkedList.new
     list.append("doop")
     list.append("deep")
