@@ -124,4 +124,5 @@ class LinkedListTest < Minitest::Test
     assert_equal "doop deep slop", list.to_string
   end
 
+
 end
