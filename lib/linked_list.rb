@@ -6,6 +6,10 @@ class LinkedList
 
   attr_reader :head
 
+  def initialize
+    @head
+  end
+
   def append(sound)
     if @head == nil
       @head = Node.new(sound)
@@ -16,6 +20,7 @@ class LinkedList
       end
       current_node.next_node = Node.new(sound)
     end
+    sound
   end
 
   def count
