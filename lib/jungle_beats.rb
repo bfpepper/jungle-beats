@@ -7,6 +7,8 @@ class JungleBeats
 
   def initialize
     @list = LinkedList.new
+    @rate = 500
+    @voice = "Boing"
   end
 
 
@@ -22,10 +24,28 @@ class JungleBeats
     list.count
   end
 
+  def rate(speed)
+    @rate = speed
+  end
+
+  def reset_rate
+    @rate = 500
+  end
+
+  def voice(name)
+    @voice = name
+  end
+
+  def reset_voice
+    @voice = "Boing"
+  end
+
   def play
     beats = list.to_string
-    `say -r 500 -v Boing #{beats}`
-    beats
+    noise = @voice
+    thing = @rate
+    `say -r #{thing} -v #{noise} #{beats}`
+    count
   end
 
 end
