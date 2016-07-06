@@ -38,27 +38,27 @@ class JungleBeatsTest < Minitest::Test
   def test_it_can_set_the_play_rate
     jb = JungleBeats.new
     jb.append("deep dop dop deep")
-    assert_equal 100, jb.rate(100)
-    assert_equal 200, jb.rate(200)
+    assert_equal 100, jb.rate = 100
+    assert_equal 200, jb.rate = 200
   end
 
   def test_it_can_reset_rate_of_play
     jb = JungleBeats.new
     jb.append("deep dop dop deep")
-    assert_equal 100, jb.rate(100)
+    assert_equal 100, jb.rate = 100 
     assert_equal 500, jb.reset_rate
   end
 
   def test_it_can_change_the_play_voice
     jb = JungleBeats.new
     jb.append("deep dop dop deep")
-    assert_equal "Alice", jb.voice("Alice")
+    assert_equal "Alice", jb.voice = "Alice"
   end
 
   def test_it_can_reset_voice_to_default
     jb = JungleBeats.new
     jb.append("deep dop dop deep")
-    assert_equal "Alice", jb.voice("Alice")
+    assert_equal "Alice", jb.voice = "Alice"
     assert_equal "Boing", jb.reset_voice
   end
 

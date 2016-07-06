@@ -4,6 +4,7 @@ require "./lib/node"
 class JungleBeats
 
   attr_reader :list
+  attr_accessor :rate, :voice
 
   def initialize
     @list = LinkedList.new
@@ -24,16 +25,8 @@ class JungleBeats
     list.count
   end
 
-  def rate(speed)
-    @rate = speed
-  end
-
   def reset_rate
     @rate = 500
-  end
-
-  def voice(name)
-    @voice = name
   end
 
   def reset_voice
@@ -43,8 +36,8 @@ class JungleBeats
   def play
     beats = list.to_string
     noise = @voice
-    thing = @rate
-    `say -r #{thing} -v #{noise} #{beats}`
+    scale = @rate
+    `say -r #{scale} -v #{noise} #{beats}`
     count
   end
 
