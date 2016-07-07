@@ -71,22 +71,8 @@ class LinkedList
   end
 
   def find(start_position, number_of_positions)
-    found = ""
-    current_node = @head
-    count = 0
-    until count == start_position
-      current_node = current_node.next_node
-      count += 1
-    end
-    count = 1
-    found << current_node.data
-    current_node = current_node.next_node
-    until count == number_of_positions
-      found << " " + current_node.data
-      current_node = current_node.next_node
-      count += 1
-    end
-    found
+    currernt_node = find_start(start_position) #thing i added
+    find_amount_of_data(currernt_node, number_of_positions)
   end
 
   def includes?(sound)
@@ -102,6 +88,29 @@ class LinkedList
     popped_value = current_node.next_node.data
     current_node.next_node = nil
     popped_value
+  end
+
+  def find_start(start_position)
+    current_node = @head
+    count = 0
+    until count == start_position
+      current_node = current_node.next_node
+      count += 1
+    end
+    current_node
+  end
+
+  def find_amount_of_data(current_node, number_of_positions)
+    found = ""
+    count = 1
+    found << current_node.data
+    current_node = current_node.next_node
+    until count == number_of_positions
+      found << " " + current_node.data
+      current_node = current_node.next_node
+      count += 1
+    end
+    found
   end
 
 end
