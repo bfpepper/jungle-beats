@@ -1,14 +1,8 @@
-require "pry"
-
 require "./lib/node"
 
 class LinkedList
 
   attr_reader :head
-
-  def initialize
-    @head
-  end
 
   def append(sound)
     if @head == nil
@@ -71,7 +65,7 @@ class LinkedList
   end
 
   def find(start_position, number_of_positions)
-    currernt_node = find_start(start_position) #thing i added
+    currernt_node = find_start(start_position)
     find_amount_of_data(currernt_node, number_of_positions)
   end
 
