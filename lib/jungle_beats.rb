@@ -6,10 +6,11 @@ class JungleBeats
   attr_reader :list
   attr_accessor :rate, :voice
 
-  def initialize
+  def initialize(sound)
     @list = LinkedList.new
     @rate = 500
     @voice = "Boing"
+    append(sound)
   end
 
 
